@@ -1,0 +1,238 @@
+$breakpoints: (
+  tn: 384,
+  xxs: 480,
+  xs: 576,
+  sm: 768,
+  md: 1024,
+  lg: 1200,
+  xl: 1440,
+  xxl: 1920,
+  xxxl: 3000,
+  max: 100000,
+);
+
+@mixin max($name) {
+  $max: map-get($breakpoints, $name) - 1;
+  @media (max-width: #{$max}px) {
+    @content;
+  }
+}
+@mixin min($name) {
+  $min: map-get($breakpoints, $name);
+  @media (min-width: #{$min}px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.wrap {
+  line-height: 1.4;
+}
+.header {
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #fff;
+  justify-content: space-between;
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: 0.25);
+  position: relative;
+  z-index: 2;
+  @include min(lg) {
+    align-items: flex-start;
+    align-content: flex-start;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 88px;
+    @include min(lg) {
+      text-align: center;
+      width: 100%;
+      line-height: 174px;
+      font-size: 30px;
+    }
+  }
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    @include min(lg) {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: -50px;
+      top: 37px;
+    }
+    &__image {
+      width: 37px;
+      height: 33px;
+      background-size: cover;
+      background-image: url("/image/logo.png");
+      background-position: center;
+      @include min(lg) {
+        width: 76px;
+        height: 67px;
+      }
+    }
+  }
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    background-size: 100% auto;
+    background-image: url("/image/menu_icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    @include min(lg) {
+      display: none;
+    }
+  }
+  .close-icon {
+    width: 24px;
+    height: 24px;
+    background-size: 100% auto;
+    background-image: url("/image/close_icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    @include min(lg) {
+      display: none;
+    }
+  }
+  .navbar {
+    width: 100%;
+    // padding-top: 20px;
+    // padding-bottom: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s height;
+    @include min(lg) {
+      height: auto;
+    }
+    &--open {
+      height: 209px;
+      @include min(lg) {
+        height: auto;
+      }
+    }
+    &__item {
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 21px;
+      @include max(lg) {
+        &:first-child {
+          margin-top: 20px;
+        }
+        &:last-child {
+          margin-bottom: 45px;
+        }
+      }
+
+      &:hover {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #aa6666;
+      }
+    }
+  }
+}
+.main {
+  @include min(lg) {
+    margin-left: 345px;
+  }
+  .banner {
+    width: 100%;
+    position: relative;
+    &__image {
+      width: 100%;
+      padding-top: 83.04%;
+      background-size: cover;
+      background-position: center;
+      background-image: url("/image/Banner.png");
+      @include min(lg) {
+        padding-top: 58%;
+      }
+    }
+    &__text {
+      color: #fff;
+      padding: 20px;
+      width: 100%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      text-align: end;
+      @include min(lg) {
+        padding: 36px 44px;
+      }
+      &-title {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      &-note {
+        font-size: 18px;
+      }
+    }
+  }
+  .feature {
+    background-color: #dcccbc;
+    padding: 50px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    @include min(lg) {
+      padding: 58px 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    &__item {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      align-items: flex-start;
+      gap: 36px;
+      &-title {
+        writing-mode: vertical-lr;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 36px;
+        position: relative;
+        &::after {
+          width: 25px;
+          height: 25px;
+          content: "";
+          display: block;
+          background-size: cover;
+          background-position: center;
+          background-image: url("/image/circle.png");
+          position: absolute;
+          bottom: -11px;
+          right: -17px;
+        }
+      }
+      &-decs {
+        font-size: 16px;
+      }
+    }
+  }
+}

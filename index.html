@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>白頭翁</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrap">
+        <div class="header">
+          <div class="menu-icon" v-if="!isOpenMenu" @click="toggleMenu"></div>
+          <div class="close-icon" v-else @click="toggleMenu"></div>
+
+          <div class="title">白頭翁不吃小米</div>
+          <div class="logo">
+            <div class="logo__image"></div>
+          </div>
+          <div class="navbar" :class="{'navbar--open': isOpenMenu}">
+            <div class="navbar__item">白頭翁的特性</div>
+            <div class="navbar__item">白頭翁的故事</div>
+            <div class="navbar__item">白頭翁的美照</div>
+            <div class="navbar__item">白頭翁的危機</div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="banner">
+            <div class="banner__image"></div>
+            <div class="banner__text">
+              <div class="banner__text-title">白頭翁 (Chinese bulbul)</div>
+              <div class="banner__text-note">
+                又名白頭鵯。以果實、昆蟲為主食，無法消化小米、穀類。平均壽命約
+                8~10 年。
+              </div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__item">
+              <div class="feature__item-title">外觀</div>
+              <div class="feature__item-decs">
+                白頭鵯體長約17到22公分，額至頭頂純黑色而富有光澤，兩眼上方至後枕白色，形成一白色枕環。耳羽後部有一白斑，此白環與白斑在黑色的頭部均極為醒目，老鳥的枕羽(後頭部)更潔白，所以又叫「白頭翁」。
+              </div>
+            </div>
+            <div class="feature__item">
+              <div class="feature__item-title">棲地</div>
+              <div class="feature__item-decs">
+                白頭翁和麻雀、綠繡眼合稱「城市三寶」，常成群出現在平原區灌木叢、丘陵樹林地帶，以及校園、公園、庭院、行道中的各種高高的電線與樹上。
+              </div>
+            </div>
+            <div class="feature__item">
+              <div class="feature__item-title">食性</div>
+              <div class="feature__item-decs">
+                以果樹的漿果和種子為主食，並時常飛入果園偷吃果實，還會吃嫩葉嫩芽，尤其是胡蝶蘭的嫩葉嫩芽葉，偶爾啄食昆蟲。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
