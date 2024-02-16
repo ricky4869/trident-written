@@ -214,6 +214,9 @@ $breakpoints: (
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
     }
+    @include min(xl) {
+      gap: 80px;
+    }
     &__item {
       display: grid;
       grid-template-columns: 36px 1fr;
