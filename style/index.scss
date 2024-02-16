@@ -83,7 +83,7 @@ $breakpoints: (
       width: 37px;
       height: 33px;
       background-size: cover;
-      background-image: url("/image/logo.png");
+      background-image: url("../image/logo.png");
       background-position: center;
       @include min(lg) {
         width: 76px;
@@ -95,7 +95,7 @@ $breakpoints: (
     width: 24px;
     height: 24px;
     background-size: 100% auto;
-    background-image: url("/image/menu_icon.png");
+    background-image: url("../image/menu_icon.png");
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -107,7 +107,7 @@ $breakpoints: (
     width: 24px;
     height: 24px;
     background-size: 100% auto;
-    background-image: url("/image/close_icon.png");
+    background-image: url("../image/close_icon.png");
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -148,11 +148,17 @@ $breakpoints: (
           margin-bottom: 45px;
         }
       }
-
-      &:hover {
+      &--selected {
         font-weight: bold;
         text-decoration: underline;
         color: #aa6666;
+      }
+      &:hover {
+        @include min(lg) {
+          font-weight: bold;
+          text-decoration: underline;
+          color: #aa6666;
+        }
       }
     }
   }
@@ -169,7 +175,7 @@ $breakpoints: (
       padding-top: 83.04%;
       background-size: cover;
       background-position: center;
-      background-image: url("/image/Banner.png");
+      background-image: url("../image/Banner.png");
       @include min(lg) {
         padding-top: 58%;
       }
@@ -224,7 +230,7 @@ $breakpoints: (
           display: block;
           background-size: cover;
           background-position: center;
-          background-image: url("/image/circle.png");
+          background-image: url("../image/circle.png");
           position: absolute;
           bottom: -11px;
           right: -17px;
